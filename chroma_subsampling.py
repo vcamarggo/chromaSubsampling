@@ -4,9 +4,9 @@ import function_errors as fe
 
 mode = { '4:4:4': [1, 1],'4:4:0': [1,2], '4:2:2': [2,1],  '4:2:0': [2,2], '4:1:1': [4,1]}
 
-subsampling = lambda img, mode : img[::mode[0], ::mode[1]]
+subsampling 	= lambda img, mode : img[::mode[0], ::mode[1]]
 upsampling	= lambda img, mode : np.repeat(np.repeat(img, mode[0], axis=0), mode[1], axis=1)
-in_pic		= 'daronco' 
+in_pic		= 'input_picture' 
 bgr_img 	= cv2.imread('in/' + in_pic + '.jpg', 1)
 ycbcr_img	= cv2.cvtColor(bgr_img , cv2.COLOR_BGR2YCrCb)
 y, cr, cb 	= cv2.split(ycbcr_img)
